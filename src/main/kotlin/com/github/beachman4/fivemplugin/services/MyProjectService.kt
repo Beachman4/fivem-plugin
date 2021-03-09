@@ -1,7 +1,7 @@
-package org.jetbrains.plugins.template.services
+package com.github.beachman4.fivemplugin.services
 
+import com.github.beachman4.fivemplugin.MyBundle
 import com.intellij.openapi.project.Project
-import org.jetbrains.plugins.template.MyBundle
 
 class MyProjectService(project: Project) {
 

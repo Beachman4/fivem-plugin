@@ -1,6 +1,6 @@
-package org.jetbrains.plugins.template.services
+package com.github.beachman4.fivemplugin.services
 
-import org.jetbrains.plugins.template.MyBundle
+import com.github.beachman4.fivemplugin.MyBundle
 
 class MyApplicationService {
 
