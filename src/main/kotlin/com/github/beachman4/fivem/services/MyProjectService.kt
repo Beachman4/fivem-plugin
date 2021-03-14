@@ -1,6 +1,6 @@
-package com.github.beachman4.fivemplugin.services
+package com.github.beachman4.fivem.services
 
-import com.github.beachman4.fivemplugin.MyBundle
+import com.github.beachman4.fivem.MyBundle
 import com.intellij.openapi.project.Project
 
 class MyProjectService(project: Project) {

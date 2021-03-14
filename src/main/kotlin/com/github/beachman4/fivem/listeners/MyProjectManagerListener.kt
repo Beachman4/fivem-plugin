@@ -1,6 +1,6 @@
-package com.github.beachman4.fivemplugin.listeners
+package com.github.beachman4.fivem.listeners
 
-import com.github.beachman4.fivemplugin.services.MyProjectService
+import com.github.beachman4.fivem.services.MyProjectService
 import com.intellij.openapi.components.service
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.project.ProjectManagerListener

@@ -2,7 +2,21 @@
 # https://github.com/detekt/detekt/blob/master/detekt-core/src/main/resources/default-detekt-config.yml
 
 formatting:
+  MaximumLineLength:
+    maxLineLength: 300
   Indentation:
     continuationIndentSize: 8
   ParameterListWrapping:
-    indentSize: 8
+    active: false
+  NoWildcardImports:
+    active: false
+style:
+  ReturnCount:
+    active: false
+  LoopWithTooManyJumpStatements:
+    active: false
+  WildcardImport:
+    active: false
+complexity:
+  TooManyFunctions:
+    active: false

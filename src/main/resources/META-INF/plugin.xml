@@ -1,19 +1,27 @@
 <idea-plugin>
-    <id>com.github.beachman4.fivemplugin</id>
-    <name>fivem-plugin</name>
+    <id>com.github.beachman4.fivem</id>
+    <name>Fivem</name>
     <vendor>beachman4</vendor>
 
     <!-- Product and plugin compatibility requirements -->
     <!-- https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
+    <depends>com.tang</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.beachman4.fivemplugin.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.beachman4.fivemplugin.services.MyProjectService"/>
+        <applicationService serviceImplementation="com.github.beachman4.fivem.services.MyApplicationService"/>
+        <projectService serviceImplementation="com.github.beachman4.fivem.services.MyProjectService"/>
+        <completion.contributor language="Lua" implementationClass="com.github.beachman4.fivem.completion.FivemCodeCompletionContributor" order="first"/>
+<!--        <psi.referenceContributor language="Lua" implementation="com.github.beachman4.fivem.completion.FivemReferenceContributor" order="first"/>-->
+
+        <fileBasedIndex implementation="com.github.beachman4.fivem.stub.EventsStubIndex"/>
+        <fileBasedIndex implementation="com.github.beachman4.fivem.stub.FivemResourceIndex"/>
+        <fileBasedIndex implementation="com.github.beachman4.fivem.stub.FivemFileDataIndex"/>
+        <fileBasedIndex implementation="com.github.beachman4.fivem.stub.FileToResourceIndex"/>
     </extensions>
 
     <applicationListeners>
-        <listener class="com.github.beachman4.fivemplugin.listeners.MyProjectManagerListener"
+        <listener class="com.github.beachman4.fivem.listeners.MyProjectManagerListener"
                   topic="com.intellij.openapi.project.ProjectManagerListener"/>
     </applicationListeners>
 </idea-plugin>

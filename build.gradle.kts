@@ -30,6 +30,7 @@ repositories {
 }
 dependencies {
     detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.15.0")
+    implementation("com.beust", "klaxon", "5.4")
 }
 
 // Configure gradle-intellij-plugin plugin.

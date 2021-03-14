@@ -1,4 +1,4 @@
-package com.github.beachman4.fivemplugin
+package com.github.beachman4.fivem
 
 import com.intellij.AbstractBundle
 import org.jetbrains.annotations.NonNls
