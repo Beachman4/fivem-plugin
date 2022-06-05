@@ -31,7 +31,7 @@ class EventsStubIndex : FileBasedIndexExtension<String, Void>() {
     }
 
     override fun getVersion(): Int {
-        return 1
+        return 2
     }
 
     override fun dependsOnFileContent(): Boolean {

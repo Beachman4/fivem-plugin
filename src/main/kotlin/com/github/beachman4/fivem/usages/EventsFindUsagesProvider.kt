@@ -55,7 +55,8 @@ class EventsFindUsagesProvider : FindUsagesProvider {
                 "TriggerEvent",
                 "TriggerClientEvent",
                 "TriggerServerEvent",
-                "RegisterNetEvent"
+                "RegisterNetEvent",
+                "RegisterServerEvent"
             )
 
             return validFunctions.contains(firstChild.text)

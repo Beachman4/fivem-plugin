@@ -28,7 +28,7 @@ class FileToResourceIndex : FileBasedIndexExtension<String, String>() {
     }
 
     override fun getVersion(): Int {
-        return 1
+        return 2
     }
 
     override fun dependsOnFileContent(): Boolean {
@@ -94,6 +94,11 @@ class FileToResourceIndex : FileBasedIndexExtension<String, String>() {
     override fun getInputFilter(): FileBasedIndex.InputFilter {
         return FileBasedIndex.InputFilter { file ->
             val extension = file.extension
+            
+            if (file.path.contains("node_modules")) {
+                return@InputFilter false
+            }
+            
             val validTypes = listOf(
                 "lua",
                 "meta",

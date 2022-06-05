@@ -11,10 +11,10 @@ import com.tang.intellij.lua.psi.impl.LuaNameExprImpl
 
 class NativeEventPatternCondition(debugMethodName: String?) : PatternCondition<PsiElement>(debugMethodName) {
     override fun accepts(t: PsiElement, context: ProcessingContext?): Boolean {
-        var luaLiteralExprImpl: LuaLiteralExprImpl? = PsiTreeUtil.getParentOfType(t, LuaLiteralExprImpl::class.java)
+        val luaLiteralExprImpl: LuaLiteralExprImpl? = PsiTreeUtil.getParentOfType(t, LuaLiteralExprImpl::class.java)
             ?: return false
 
-        var luaListArgs = luaLiteralExprImpl!!.parent
+        val luaListArgs = luaLiteralExprImpl!!.parent
 
         if (luaListArgs !is LuaListArgsImpl) {
             return false
@@ -34,7 +34,8 @@ class NativeEventPatternCondition(debugMethodName: String?) : PatternCondition<P
                 "TriggerEvent",
                 "TriggerClientEvent",
                 "TriggerServerEvent",
-                "RegisterNetEvent"
+                "RegisterNetEvent",
+                "RegisterServerEvent"
             )
 
             return validFunctions.contains(luaNameExpr.name)

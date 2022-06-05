@@ -38,7 +38,7 @@ class FivemFileDataIndex : FileBasedIndexExtension<String, FivemFileData>() {
     }
 
     override fun getVersion(): Int {
-        return 1
+        return 2
     }
 
     override fun dependsOnFileContent(): Boolean {
@@ -138,6 +138,25 @@ class FivemFileDataIndex : FileBasedIndexExtension<String, FivemFileData>() {
                             fileData.functionParameters[functionName.text]!!.add(parameter.text)
                         }
                     }
+                    
+//                    val luaListArgs = PsiTreeUtil.findChildrenOfType(psiFile, LuaListArgsImpl::class.java)
+//                    
+//                    for (child in luaListArgs) {
+//                        val prevSibling = child.prevSibling
+//                        for (innerChildren in prevSibling.children) {
+//                            if (innerChildren.text == "TriggerEvent") {
+//                                val firstChild = PsiTreeUtil.getChildrenOfType(child, LuaLiteralExprImpl::class.java).first()
+//                                
+//                                if (firstChild != null) {
+//                                    val removedQuotes = StringUtil.removeQuotes(firstChild.text)
+//                                    
+//                                    if (!fileData.triggeredEvents.contains(removedQuotes)) {
+//                                        fileData.triggeredEvents.add(removedQuotes)
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
 
                     val luaExprStatImpls = PsiTreeUtil.findChildrenOfType(psiFile, LuaExprStatImpl::class.java)
 
@@ -178,6 +197,11 @@ class FivemFileDataIndex : FileBasedIndexExtension<String, FivemFileData>() {
     override fun getInputFilter(): FileBasedIndex.InputFilter {
         return FileBasedIndex.InputFilter { file ->
             val extension = file.extension
+            
+            if (file.path.contains("node_modules")) {
+                return@InputFilter false
+            }
+            
             val validTypes = listOf(
                 "lua"
             )

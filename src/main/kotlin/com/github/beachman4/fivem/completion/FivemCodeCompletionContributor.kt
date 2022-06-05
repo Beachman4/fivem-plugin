@@ -98,6 +98,12 @@ class FivemCodeCompletionContributor : CompletionContributor() {
         extend(
             CompletionType.BASIC,
             psiElement(LuaTypes.STRING)
+                .with(T9GEventPatternCondition(null)),
+            EventCompletionProvider()
+        )
+        extend(
+            CompletionType.BASIC,
+            psiElement(LuaTypes.STRING)
                 .with(MysqlPatternCondition(null)),
             MysqlParametersCompletionProvider()
         )
@@ -131,11 +137,11 @@ class FivemCodeCompletionContributor : CompletionContributor() {
                 .with(ExportsPatternCondition()),
             ExportsResourcesCompletionProvider()
         )
-//        extend(
-//            CompletionType.BASIC,
-//            psiElement().with(ExportsFunctionPatternCondition()),
-//            ExportsFunctionsCompletionProvider()
-//        )
+        extend(
+            CompletionType.BASIC,
+            psiElement().with(ExportsFunctionPatternCondition()),
+            ExportsFunctionsCompletionProvider()
+        )
     }
 
     override fun fillCompletionVariants(parameters: CompletionParameters, result: CompletionResultSet) {

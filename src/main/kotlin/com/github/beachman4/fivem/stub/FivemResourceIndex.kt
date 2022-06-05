@@ -38,7 +38,7 @@ class FivemResourceIndex : FileBasedIndexExtension<String, Resource>() {
     }
 
     override fun getVersion(): Int {
-        return 1
+        return 2
     }
 
     override fun dependsOnFileContent(): Boolean {
@@ -223,7 +223,7 @@ class FivemResourceIndex : FileBasedIndexExtension<String, Resource>() {
     override fun getInputFilter(): FileBasedIndex.InputFilter {
         val validNames = arrayListOf<String>("__resource.lua", "fxmanifest.lua")
         return FileBasedIndex.InputFilter { file: VirtualFile ->
-            file.fileType === LuaFileType.INSTANCE && validNames.contains(file.name)
+            !file.path.contains("node_modules") && file.fileType === LuaFileType.INSTANCE && validNames.contains(file.name)
         }
     }
 
